@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\BlogPostController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->group(function(){
+    Route::get('/dashboard',[BlogPostController::class, 'index'])->name('dashboard');
+    
+    // GET /blog/1
+    Route::get('/blog', [BlogPostController::class, 'index']);
+    
+    // GET /blog/1
+    Route::get('/blog/{blogPost}', [BlogPostController::class, 'show']);
+});
