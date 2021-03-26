@@ -26,11 +26,13 @@ class BlogPostController extends Controller
 
     public function store(Request $request)
     {
+
+        $user = auth()->user();
+
         $newPost = BlogPost::create([
             'title' => $request->title,
             'body' => $request->body,
-            //TODO: Reperire user_id da auth
-            'user_id' => 1
+            'user_id' => $user->id
         ]);
 
         return redirect('blog/' . $newPost->id);
