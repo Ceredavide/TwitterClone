@@ -24,18 +24,18 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/blog/{blogPost}', [BlogPostController::class, 'show']);
 
     //shows create post form
-    Route::get('/blog/create/post', [\App\Http\Controllers\BlogPostController::class, 'create']);
+    Route::get('/blog/create/post', [BlogPostController::class, 'create']);
     
     //saves the created post to the databse
-    Route::post('/blog/create/post', [\App\Http\Controllers\BlogPostController::class, 'store']); 
+    Route::post('/blog/create/post', [BlogPostController::class, 'store']); 
     
 
     //shows edit post form
-    Route::get('/blog/{blogPost}/edit', [\App\Http\Controllers\BlogPostController::class, 'edit']); 
+    Route::get('/blog/{blogPost}/edit', [BlogPostController::class, 'edit']); 
     
     //commits edited post to the database 
-    Route::put('/blog/{blogPost}/edit', [\App\Http\Controllers\BlogPostController::class, 'update']); 
+    Route::put('/blog/{blogPost}/edit', [BlogPostController::class, 'update']); 
 
     //deletes post from the database
-    Route::delete('/blog/{blogPost}', [\App\Http\Controllers\BlogPostController::class, 'destroy']); 
+    Route::delete('/blog/{blogPost}', [BlogPostController::class, 'destroy']); 
 });
