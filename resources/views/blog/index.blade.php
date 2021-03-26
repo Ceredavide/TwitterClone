@@ -9,13 +9,13 @@
                         <p>Enjoy reading our posts. Click on a post to read!</p>
                     </div>
                     <div class="col-4">
-                        <p>Create new Post</p>
-                        <a href="/blog/create/post" class="btn btn-primary btn-sm">Add Post</a>
+                        <h5>Create new Post:</h5>
+                        <a href="/blog/create/post" class="btn btn-success btn-sm">Add Post</a>
                     </div>
                 </div>                
                 @forelse($posts as $post)
-                    <ul>
-                        <li><a href="./blog/{{ $post->id }}">{{ ucfirst($post->title) }}</a></li>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="/blog/{{ $post->id }}">{{ ucfirst($post->title) }}</a></li>
                     </ul>
                 @empty
                     <p class="text-warning">No blog Posts available</p>
