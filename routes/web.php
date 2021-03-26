@@ -15,16 +15,27 @@ use App\Http\Controllers\BlogPostController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function(){
-    Route::get('/dashboard',[BlogPostController::class, 'index'])->name('dashboard');
-    
-    // GET /blog/1
-    Route::get('/blog', [BlogPostController::class, 'index']);
-    
+    // GET blogs
+    Route::get('/blog', [BlogPostController::class, 'index'])->name('Home');
+
     // GET /blog/1
     Route::get('/blog/{blogPost}', [BlogPostController::class, 'show']);
+
+    //shows create post form
+    Route::get('/blog/create/post', [\App\Http\Controllers\BlogPostController::class, 'create']);
+    
+    //saves the created post to the databse
+    Route::post('/blog/create/post', [\App\Http\Controllers\BlogPostController::class, 'store']); 
+    
+
+    //shows edit post form
+    Route::get('/blog/{blogPost}/edit', [\App\Http\Controllers\BlogPostController::class, 'edit']); 
+    
+    //commits edited post to the database 
+    Route::put('/blog/{blogPost}/edit', [\App\Http\Controllers\BlogPostController::class, 'update']); 
+
+    //deletes post from the database
+    Route::delete('/blog/{blogPost}', [\App\Http\Controllers\BlogPostController::class, 'destroy']); 
 });
