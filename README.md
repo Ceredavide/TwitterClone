@@ -29,3 +29,5 @@ da fare
 - **[DevSquad](https://devsquad.com)**
 - **[Curotec](https://www.curotec.com/)**
 - **[OP.GG](https://op.gg)**
+- https://medium.com/@afrazahmad090/laravel-many-to-many-relationship-explained-822b554c1973
+- https://mactavish10101.medium.com/how-to-upload-images-in-laravel-7-7a7f9982ebba
