@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBlogPostsTable extends Migration
+class EditBlogPostTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,20 @@ class CreateBlogPostsTable extends Migration
      */
     public function up()
     {
+
+        Schema::dropIfExists('BlogPost');
+
         Schema::create('blog_posts', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements("id");
             $table->timestamps();
 
-            // inserimento 
+            $table->text('title');
+            $table->text('body');
+            $table->string('user_id');
 
-            $table->text('title');  // Title of our blog post          
-            $table->text('body');   // Body of our blog post                  
-            $table->text('user_id'); // user_id of our blog post author
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')->onDelete('cascade');
         });
     }
 
