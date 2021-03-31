@@ -30,7 +30,7 @@
                 <h1 class="display-one mt-5">Blog Trap</h1>
                 <p>Progetto per M151, spizzati questo blog fatto con Laravel & Bootstrap</p>
                 <br>
-                <a href="/blog" class="btn btn-outline-primary">Entra nel Blog</a>
+                <a href="/dashboard" class="btn btn-outline-primary">Entra nel Blog</a>
             </div>
         </div>
     </div>
