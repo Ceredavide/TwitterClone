@@ -23,8 +23,8 @@
                         </div>
                         <div class="row mt-2">
                             <div class="control-group col-12 text-center">
-                                <button id="btn-submit" class="btn btn-primary">
-                                    Create Post
+                                <button id="btn-submit" class="btn btn-success">
+                                    Crea Post
                                 </button>
                             </div>
                         </div>
