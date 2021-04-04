@@ -9,7 +9,9 @@ class BlogPostController extends Controller
 {
     public function index()
     {
-        $posts = BlogPost::all();
+        // metto in ordine di data per piu recenti
+        $posts = BlogPost::orderBy('created_at', 'DESC')->get();
+
         return view('dashboard', ['posts' => $posts]);
     }
 
